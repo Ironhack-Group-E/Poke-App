@@ -1,11 +1,37 @@
 <div class="container">
 <div class="pokedex">
     <div class="pokelist">
-        <div *ngFor="let pokemon of pokemonList; let i=index">
+        <div *ngFor="let pokemon of pokemonList| paginate:{itemsPerPage: 7, currentPage: p}; let i=index" [ngClass]="{ 'pokediv': true, 'selected': i===selectedPokediv }" (click)="selectDiv(i, pokemon)">
             <p>{{pokemon.name}}</p>
         </div>
+        <div id="pagination">
+			<pagination-controls class="hide-page-numbers" (pageChange)="p=$event"></pagination-controls>
+		</div> 
     </div>
-    <div class="stats"></div>
+    <div class="stats">
+        <div><img *ngIf="selectedPokemon!=undefined" class="pokemonImage" src="{{selectedPokemon?.image}}" alt=""></div>
+        <h2>{{selectedPokemon?.name}}</h2>
+        <p>{{selectedPokemon?.types}}</p>
+
+        <table *ngIf="selectedPokemon!=undefined" class="table table-hover">
+            <tbody>
+              <tr>
+                
+                <td>HP: {{selectedPokemon?.hp}}</td>
+                <td>Attack: {{selectedPokemon?.attack}}</td>
+                <td>Defense: {{selectedPokemon?.defense}}</td>
+              </tr>
+              <tr>
+                
+                <td>Special attack: {{selectedPokemon?.specialAttack}}</td>
+                <td>Special defense: {{selectedPokemon?.specialDefense}}</td>
+                <td>Speed: {{selectedPokemon?.speed}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+       
+    </div>
 </div>
 
 </div>

@@ -1,5 +1,6 @@
 export class Pokemon {
    
+   
     constructor(
         private _id: number,
         private _name: string,
@@ -9,6 +10,7 @@ export class Pokemon {
         private _defense: number,
         private _specialAttack: number,
         private _specialDefense: number,
+        private _speed: number,
         private _types: string[]
     ){}
 
@@ -66,5 +68,11 @@ export class Pokemon {
     }
     public set hp(value: number) {
         this._hp = value;
+    }
+    public get speed(): number {
+        return this._speed;
+    }
+    public set speed(value: number) {
+        this._speed = value;
     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../models/Pokemon/pokemon';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import{PokemonApiService} from '../services/pokemon-api.service'
 
 @Component({
@@ -11,6 +11,9 @@ import{PokemonApiService} from '../services/pokemon-api.service'
 export class PokedexComponent implements OnInit {
 
   pokemonList:Pokemon[]=[];
+  selectedPokediv: number | undefined; 
+  selectedPokemon:Pokemon| undefined;   
+  p=0;
 
   constructor(
     private pokemonApiService: PokemonApiService
@@ -28,7 +31,8 @@ export class PokedexComponent implements OnInit {
             dataResult2.stats[1].base_stat,
             dataResult2.stats[2].base_stat,
             dataResult2.stats[3].base_stat,
-            dataResult2.stats[4].base_stat, 
+            dataResult2.stats[4].base_stat,
+            dataResult2.stats[5].base_stat,
             []
           )
           newPoke.types[0]=dataResult2.types[0].type.name;
@@ -39,6 +43,11 @@ export class PokedexComponent implements OnInit {
         })
       });
     });
+  }
+
+  selectDiv(i:number, pokemon:Pokemon){
+    this.selectedPokediv=i;
+    this.selectedPokemon=pokemon;
   }
 
 }
