@@ -95,7 +95,7 @@ export class TeamComponent implements OnInit {
   }
 
   keydownHandler(event: KeyboardEvent): void {
-    if (event.key === 'Enter')
+    if (event.key === 'Enter' && this.pokemonName.length > 0)
       this.addPokemonByName(this.pokemonName);
   }
 
