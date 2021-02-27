@@ -1,1 +1,5 @@
-<p>team works!</p>
+<!-- <label>Select a trainer:</label> -->
+<select [(ngModel)]="selectedTrainer" (change)="trainerChange(selectedTrainer)">
+    <!-- <option value="">Select a trainer</option> -->
+    <option *ngFor="let trainer of trainers" [ngValue]="trainer">{{ trainer.name }}</option>
+  </select>
