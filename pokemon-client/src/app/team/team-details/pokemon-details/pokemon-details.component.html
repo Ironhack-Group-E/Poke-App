@@ -1,14 +1,16 @@
-<img [src]="pokemon.image" [alt]="pokemon.name"><br>
-        {{pokemon.name}}<br>
-        {{pokemon.types}}<br>
-        <button (click)="toggleDisplayStats()">{{buttonText}}</button>
-        <div *ngIf="displayStats">
-            <ul>
-                <li>hp: {{pokemon.hp}}</li>
-                <li>attack: {{pokemon.attack}}</li>
-                <li>defense: {{pokemon.defense}}</li>
-                <li>special attack: {{pokemon.specialAttack}}</li>
-                <li>special defense: {{pokemon.specialDefense}}</li>
-                <li>speed: {{pokemon.speed}}</li>
-            </ul>
-        </div>
+<div [ngStyle]="{'background-color': backgroundColor, 'color': color}" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()"> 
+    <img [src]="pokemon.image" [alt]="pokemon.name"><br>
+    {{pokemon.name}}<br>
+    {{pokemon.types}}<br>
+    <button (click)="toggleDisplayStats()">{{buttonText}}</button>
+    <div *ngIf="displayStats">
+        <ul>
+            <li>hp: {{pokemon.hp}}</li>
+            <li>attack: {{pokemon.attack}}</li>
+            <li>defense: {{pokemon.defense}}</li>
+            <li>special attack: {{pokemon.specialAttack}}</li>
+            <li>special defense: {{pokemon.specialDefense}}</li>
+            <li>speed: {{pokemon.speed}}</li>
+        </ul>
+    </div>
+</div>

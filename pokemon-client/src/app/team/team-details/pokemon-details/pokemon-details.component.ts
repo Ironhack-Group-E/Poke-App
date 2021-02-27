@@ -9,9 +9,12 @@ import { Pokemon } from 'src/app/models/Pokemon/pokemon';
 export class PokemonDetailsComponent implements OnInit {
 
   @Input() pokemon!: Pokemon;
-  
+
   displayStats: boolean = false;
   buttonText: string = "View stats"
+
+  color: string = "#000000";
+  backgroundColor: string = "#FFFFFF";
 
   constructor() { }
 
@@ -26,5 +29,15 @@ export class PokemonDetailsComponent implements OnInit {
     else { 
       this.buttonText = "View stats";
     }
+  }
+
+  onMouseOver(): void {
+    this.color = "#000000";
+    this.backgroundColor = "#FFC300";
+  }
+
+  onMouseOut(): void {
+    this.color = "#000000";
+    this.backgroundColor = "#FFFFFF";
   }
 }
