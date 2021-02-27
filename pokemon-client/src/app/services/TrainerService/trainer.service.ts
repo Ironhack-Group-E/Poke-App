@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Trainer } from 'src/app/models/Trainer/trainer';
 
 
 @Injectable({
@@ -28,11 +29,16 @@ export class TrainerService {
     const body = JSON.stringify(trainer);
     return this.http.post<Trainer>('http://localhost:8080/trainer', body);
   }
+
+  getTeam(trainer: Trainer): Observable<number[]> {
+    return this.http.get<number[]>('http://localhost:8080/trainer/' + trainer.id + '/team');
+  }
 }
 
-interface Trainer {
-  name: string,
-  age: number,
-  hobby: string,
-  photo: string
-}
+// interface TrainerInterface {
+//   id: number,
+//   name: string,
+//   age: number,
+//   hobby: string,
+//   photo: string
+// }

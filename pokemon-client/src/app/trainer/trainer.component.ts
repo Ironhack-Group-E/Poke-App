@@ -9,7 +9,7 @@ import { TrainerService } from '../services/TrainerService/trainer.service';
 })
 export class TrainerComponent implements OnInit {
 
-  trainer: Trainer = new Trainer('', 0, '', '');
+  trainer: Trainer = new Trainer(0, '', 0, '', '');
 
   trainers: Trainer[] = [];
 
@@ -20,8 +20,8 @@ export class TrainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addTrainer(name: string, age: number, hobby: string, photo: string): void {
-    const addedTrainer: Trainer = new Trainer(name, age, hobby, photo);
+  addTrainer(id: number, name: string, age: number, hobby: string, photo: string): void {
+    const addedTrainer: Trainer = new Trainer(id, name, age, hobby, photo);
     this.trainerService.createTrainer(addedTrainer).subscribe(dataResult => console.log('Trainer ' + name + ' created!'));
     this.trainers.push(addedTrainer);
   }
@@ -33,13 +33,13 @@ export class TrainerComponent implements OnInit {
 
   getAllTrainers(): void{
     this.trainerService.getTrainers().subscribe(dataResult => {
-      dataResult.forEach(tr => this.trainers.push(new Trainer(tr.name, tr.age, tr.hobby, tr.photo)));
+      dataResult.forEach(tr => this.trainers.push(new Trainer(tr.id, tr.name, tr.age, tr.hobby, tr.photo)));
     });
   }
 
   getTrainer(id: number): void{
     this.trainerService.getTrainer(id).subscribe(dataResult => {
-      this.trainer = new Trainer(dataResult.name, dataResult.age, dataResult.hobby, dataResult.photo);
+      this.trainer = new Trainer(dataResult.id, dataResult.name, dataResult.age, dataResult.hobby, dataResult.photo);
     });
   }
 
