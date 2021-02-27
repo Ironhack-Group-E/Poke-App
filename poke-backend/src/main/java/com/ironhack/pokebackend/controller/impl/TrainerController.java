@@ -37,4 +37,8 @@ public class TrainerController implements ITrainerController {
     public void deleteTrainer(@PathVariable("id") Integer id) {
         trainerService.deleteTrainer(id);
     }
+
+    @GetMapping("/trainer/{id}/team")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Integer> getTeam(@PathVariable Integer id) { return trainerService.getTeam(id); }
 }
