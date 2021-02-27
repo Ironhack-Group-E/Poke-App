@@ -19,6 +19,10 @@ export class PokemonApiService {
   getAPokemon(url:string):Observable<InterfacePokemon> {
     return this.http.get<InterfacePokemon>(url);
   }
+
+  getPokemonById(id: number):Observable<InterfacePokemon> {
+    return this.http.get<InterfacePokemon>('https://pokeapi.co/api/v2/pokemon/' + id);
+  }
 }
 
 
