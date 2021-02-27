@@ -4,7 +4,6 @@ import { PokemonApiService } from '../services/pokemon-api.service';
 import { TrainerService } from '../services/TrainerService/trainer.service';
 import { Trainer } from '../models/Trainer/trainer';
 import { Team } from '../models/Team/team';
-import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-team',
@@ -35,6 +34,7 @@ export class TeamComponent implements OnInit {
 
   trainerChange(trainer: Trainer) {
     this.trainerService.getTeam(trainer).subscribe(pokemonIds => {
+      this._team.clear();
       pokemonIds.forEach(pokemonId => {
         this.pokemonApiService.getPokemonById(pokemonId).subscribe(pokemonData => {
           let pokemon :Pokemon = new Pokemon(
@@ -45,7 +45,8 @@ export class TeamComponent implements OnInit {
             pokemonData.stats[1].base_stat,
             pokemonData.stats[2].base_stat,
             pokemonData.stats[3].base_stat,
-            pokemonData.stats[4].base_stat, 
+            pokemonData.stats[4].base_stat,
+            pokemonData.stats[5].base_stat,
             []
           )
           pokemon.types[0]=pokemonData.types[0].type.name;
@@ -68,6 +69,10 @@ export class TeamComponent implements OnInit {
 
   set selectedTrainer(trainer: Trainer) {
     this._selectedTrainer = trainer;
+  }
+
+  get team(): Team {
+    return this._team;
   }
 
 }

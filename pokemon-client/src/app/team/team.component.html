@@ -2,4 +2,7 @@
 <select [(ngModel)]="selectedTrainer" (change)="trainerChange(selectedTrainer)">
     <!-- <option value="">Select a trainer</option> -->
     <option *ngFor="let trainer of trainers" [ngValue]="trainer">{{ trainer.name }}</option>
-  </select>
+</select>
+<input type="text" placeholder="Type a pokemon name">
+<button>Add Pokemon</button>
+<app-team-details [team]="team"></app-team-details>

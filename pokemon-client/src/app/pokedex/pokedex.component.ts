@@ -29,6 +29,7 @@ export class PokedexComponent implements OnInit {
             dataResult2.stats[2].base_stat,
             dataResult2.stats[3].base_stat,
             dataResult2.stats[4].base_stat, 
+            dataResult2.stats[5].base_stat,
             []
           )
           newPoke.types[0]=dataResult2.types[0].type.name;

@@ -10,6 +10,8 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
+import { TeamDetailsComponent } from './team/team-details/team-details.component';
+import { PokemonDetailsComponent } from './team/team-details/pokemon-details/pokemon-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     TeamComponent,
     PokedexComponent,
     TrainerComponent,
-    NavBarComponent
+    NavBarComponent,
+    TeamDetailsComponent,
+    PokemonDetailsComponent
   ],
   imports: [
     BrowserModule,

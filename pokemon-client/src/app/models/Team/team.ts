@@ -26,4 +26,8 @@ export class Team {
     public addPokemon(pokemon: Pokemon) {
         this.pokemonList.push(pokemon);
     }
+
+    public clear(): void {
+        this._pokemonList.splice(0);
+    }
 }

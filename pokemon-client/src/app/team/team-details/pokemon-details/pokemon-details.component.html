@@ -1,0 +1,14 @@
+<img [src]="pokemon.image" [alt]="pokemon.name"> - 
+        {{pokemon.name}} - 
+        {{pokemon.types}}
+        <button (click)="toggleDisplayStats()">{{buttonText}}</button>
+        <div *ngIf="displayStats">
+            <ul>
+                <li>hp: {{pokemon.hp}}</li>
+                <li>attack: {{pokemon.attack}}</li>
+                <li>defense: {{pokemon.defense}}</li>
+                <li>special attack: {{pokemon.specialAttack}}</li>
+                <li>special defense: {{pokemon.specialDefense}}</li>
+                <li>speed: {{pokemon.speed}}</li>
+            </ul>
+        </div>
