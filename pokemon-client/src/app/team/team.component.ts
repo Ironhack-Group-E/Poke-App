@@ -90,6 +90,7 @@ export class TeamComponent implements OnInit {
         }
         this._team.addPokemon(pokemon);
         this.teamService.addPokemon(this.team.id, pokemon.id).subscribe();
+        this.pokemonName = '';
     }, 
     error => alert(`Pokemon '${name}' not found`));
   }
