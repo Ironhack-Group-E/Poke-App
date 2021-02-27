@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Trainer } from 'src/app/models/Trainer/trainer';
+import { Team } from 'src/app/models/Team/team';
 
 
 @Injectable({
@@ -30,8 +31,8 @@ export class TrainerService {
     return this.http.post<Trainer>('http://localhost:8080/trainer', body);
   }
 
-  getTeam(trainer: Trainer): Observable<number[]> {
-    return this.http.get<number[]>('http://localhost:8080/trainer/' + trainer.id + '/team');
+  getTeam(trainer: Trainer): Observable<TeamInterface> {
+    return this.http.get<TeamInterface>('http://localhost:8080/trainer/' + trainer.id + '/team');
   }
 }
 
@@ -42,3 +43,9 @@ export class TrainerService {
 //   hobby: string,
 //   photo: string
 // }
+
+interface TeamInterface {
+  id: number,
+  trainer: Trainer, 
+  pokemonIds: number[]
+}

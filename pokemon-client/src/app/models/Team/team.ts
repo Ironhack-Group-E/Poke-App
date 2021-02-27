@@ -3,9 +3,20 @@ import { Trainer } from "../Trainer/trainer";
 
 export class Team {
     constructor(
+        private _id: number = 0,
         private _trainer: Trainer = new Trainer(0, '', 0, '', ''),
-        private _pokemonList: Pokemon[] = []
+        private _pokemonList: Pokemon[] = [],
     ) { }
+
+
+
+    public get id(): number {
+        return this._id;
+    }
+
+    public set id(id: number) {
+        this._id = id;
+    }
 
     public get trainer(): Trainer {
         return this._trainer;

@@ -23,6 +23,10 @@ export class PokemonApiService {
   getPokemonById(id: number):Observable<InterfacePokemon> {
     return this.http.get<InterfacePokemon>('https://pokeapi.co/api/v2/pokemon/' + id);
   }
+
+  getPokemonByName(name: string):Observable<InterfacePokemon> {
+    return this.http.get<InterfacePokemon>('https://pokeapi.co/api/v2/pokemon/' + name);
+  }
 }
 
 
