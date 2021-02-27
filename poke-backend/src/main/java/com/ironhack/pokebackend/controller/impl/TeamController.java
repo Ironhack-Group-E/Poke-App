@@ -25,6 +25,7 @@ public class TeamController implements ITeamController {
         return teamRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PatchMapping("/team/{id}/add/{pokemonId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addPokemon(@PathVariable("id") Integer id, @PathVariable("pokemonId") Integer pokemonId) {

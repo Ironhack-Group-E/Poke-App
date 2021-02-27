@@ -4,6 +4,7 @@ import { PokemonApiService } from '../services/pokemon-api.service';
 import { TrainerService } from '../services/TrainerService/trainer.service';
 import { Trainer } from '../models/Trainer/trainer';
 import { Team } from '../models/Team/team';
+import { TeamService } from '../services/team.service';
 
 @Component({
   selector: 'app-team',
@@ -20,7 +21,8 @@ export class TeamComponent implements OnInit {
 
   constructor(
     private trainerService: TrainerService,
-    private pokemonApiService: PokemonApiService
+    private pokemonApiService: PokemonApiService,
+    private teamService: TeamService
   ) {
     this._trainers = [];
     this._team = new Team();
@@ -38,6 +40,7 @@ export class TeamComponent implements OnInit {
   trainerChange(trainer: Trainer) {
     this.trainerService.getTeam(trainer).subscribe(team => {
       this._team.clear();
+      this._team.id = team.id;
       team.pokemonIds.forEach(pokemonId => {
         this.pokemonApiService.getPokemonById(pokemonId).subscribe(pokemonData => {
           let pokemon :Pokemon = new Pokemon(
@@ -63,6 +66,10 @@ export class TeamComponent implements OnInit {
   }
 
   addPokemonByName(name: string): void {
+    if (this._team.pokemonList.length === 7) {
+      alert("You can't add more than 7 Pokemon to your team!")
+      return;
+    }
     this.pokemonApiService.getPokemonByName(name.toLowerCase()).subscribe(
       pokemonData => {
         let pokemon: Pokemon = new Pokemon(
@@ -82,6 +89,7 @@ export class TeamComponent implements OnInit {
           pokemon.types[1]=pokemonData.types[1].type.name;
         }
         this._team.addPokemon(pokemon);
+        this.teamService.addPokemon(this.team.id, pokemon.id).subscribe();
     }, 
     error => alert(`Pokemon '${name}' not found`));
   }
