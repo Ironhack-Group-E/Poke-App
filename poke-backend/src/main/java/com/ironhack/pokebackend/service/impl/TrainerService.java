@@ -48,30 +48,32 @@ public class TrainerService implements ITrainerService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Trainer not found");
 
         Trainer trainer = trainerRepository.findById(id).get();
-        Team team = teamRepository.findByTrainer(trainer).get();
 
         List<Integer> pokemonIds = new ArrayList<>();
-        if (team.getPokemon1() != null) {
-            pokemonIds.add(team.getPokemon1());
-        }
-        if (team.getPokemon2() != null) {
-            pokemonIds.add(team.getPokemon2());
-        }
-        if (team.getPokemon3() != null) {
-            pokemonIds.add(team.getPokemon3());
-        }
-        if (team.getPokemon4() != null) {
-            pokemonIds.add(team.getPokemon4());
-        }
-        if (team.getPokemon5() != null) {
-            pokemonIds.add(team.getPokemon5());
-        }
-        if (team.getPokemon6() != null) {
-            pokemonIds.add(team.getPokemon6());
-        }
-        if (team.getPokemon7() != null) {
-            pokemonIds.add(team.getPokemon7());
-        }
+        try {
+            Team team = teamRepository.findByTrainer(trainer).get();
+            if (team.getPokemon1() != null) {
+                pokemonIds.add(team.getPokemon1());
+            }
+            if (team.getPokemon2() != null) {
+                pokemonIds.add(team.getPokemon2());
+            }
+            if (team.getPokemon3() != null) {
+                pokemonIds.add(team.getPokemon3());
+            }
+            if (team.getPokemon4() != null) {
+                pokemonIds.add(team.getPokemon4());
+            }
+            if (team.getPokemon5() != null) {
+                pokemonIds.add(team.getPokemon5());
+            }
+            if (team.getPokemon6() != null) {
+                pokemonIds.add(team.getPokemon6());
+            }
+            if (team.getPokemon7() != null) {
+                pokemonIds.add(team.getPokemon7());
+            }
+        } catch (Exception e) {}
 
         return pokemonIds;
     }

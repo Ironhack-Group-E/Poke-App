@@ -20,6 +20,7 @@ public class TrainerController implements ITrainerController {
     @Autowired
     private TrainerRepository trainerRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/trainers")
     @ResponseStatus(HttpStatus.OK)
     public List<Trainer> getTrainers() {
@@ -38,6 +39,7 @@ public class TrainerController implements ITrainerController {
         trainerService.deleteTrainer(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/trainer/{id}/team")
     @ResponseStatus(HttpStatus.OK)
     public List<Integer> getTeam(@PathVariable Integer id) { return trainerService.getTeam(id); }
