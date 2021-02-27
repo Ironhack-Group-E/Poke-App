@@ -1,6 +1,8 @@
 package com.ironhack.pokebackend.controller.impl;
 
+import com.ironhack.pokebackend.controller.dto.TeamDTO;
 import com.ironhack.pokebackend.controller.interfaces.ITrainerController;
+import com.ironhack.pokebackend.model.Team;
 import com.ironhack.pokebackend.model.Trainer;
 import com.ironhack.pokebackend.repository.TrainerRepository;
 import com.ironhack.pokebackend.service.interfaces.ITrainerService;
@@ -42,5 +44,5 @@ public class TrainerController implements ITrainerController {
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/trainer/{id}/team")
     @ResponseStatus(HttpStatus.OK)
-    public List<Integer> getTeam(@PathVariable Integer id) { return trainerService.getTeam(id); }
+    public TeamDTO getTeam(@PathVariable Integer id) { return trainerService.getTeam(id); }
 }

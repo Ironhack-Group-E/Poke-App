@@ -1,5 +1,6 @@
 package com.ironhack.pokebackend.controller.interfaces;
 
+import com.ironhack.pokebackend.controller.dto.TeamDTO;
 import com.ironhack.pokebackend.model.Team;
 import com.ironhack.pokebackend.model.Trainer;
 
@@ -12,5 +13,5 @@ public interface ITrainerController {
 
     void deleteTrainer(Integer id);
 
-    List<Integer> getTeam(Integer id);
+    TeamDTO getTeam(Integer id);
 }
