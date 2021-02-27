@@ -33,7 +33,7 @@ export class TeamComponent implements OnInit {
   ngOnInit(): void {
     this.trainerService.getTrainers().subscribe(dataResult => {
       this._trainers = dataResult;
-      console.log(this._trainers);
+      // console.log(this._trainers);
     });
   }
 
