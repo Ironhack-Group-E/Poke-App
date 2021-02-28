@@ -1,5 +1,7 @@
 package com.ironhack.pokebackend.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ironhack.pokebackend.controller.dto.TeamDTO;
 import com.ironhack.pokebackend.model.Team;
 import com.ironhack.pokebackend.model.Trainer;
@@ -23,9 +25,19 @@ public class TrainerService implements ITrainerService {
     @Autowired
     private TeamRepository teamRepository;
 
-    public Trainer createTrainer(Trainer trainer) {
+    public Trainer createTrainer(String trainerJSON) {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Trainer trainer = null;
+        try {
+            trainer = objectMapper.readValue(trainerJSON, Trainer.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        trainer.setId(null);
         Team team = new Team(trainer);
 
+        System.out.println(trainer.toString());
         trainer = trainerRepository.save(trainer);
 
         team = teamRepository.save(team);

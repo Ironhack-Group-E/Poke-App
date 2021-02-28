@@ -12,11 +12,11 @@ public class Trainer {
     private Integer id;
     @NotEmpty
     private String name;
-    @Min(1)
+    @Min(0)
     private Integer age;
     @NotEmpty
     private String hobby;
-    private String photo = "https://www.seekpng.com/png/detail/242-2421423_pokemon-trainer-sprite-png-pixel-pokemon-trainer-sprites.png";
+    private String photo;
 
     public Trainer() {
     }
@@ -66,5 +66,16 @@ public class Trainer {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    @Override
+    public String toString() {
+        return "Trainer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", hobby='" + hobby + '\'' +
+                ", photo='" + photo + '\'' +
+                '}';
     }
 }

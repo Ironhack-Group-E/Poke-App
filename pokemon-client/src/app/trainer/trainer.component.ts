@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from '../models/Trainer/trainer';
-import { TrainerService } from '../services/TrainerService/trainer.service';
+import { TrainerService } from '../services/trainer.service';
 
 @Component({
   selector: 'app-trainer',
@@ -9,7 +9,10 @@ import { TrainerService } from '../services/TrainerService/trainer.service';
 })
 export class TrainerComponent implements OnInit {
 
-  trainer: Trainer = new Trainer(0, '', 0, '', '');
+  trainerName: string = "";
+  trainerHobby: string = "";
+  trainerAge: string = "";
+  trainerPhoto: string = "";
 
   trainers: Trainer[] = [];
 
@@ -18,12 +21,42 @@ export class TrainerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAllTrainers();
   }
 
-  addTrainer(id: number, name: string, age: number, hobby: string, photo: string): void {
-    const addedTrainer: Trainer = new Trainer(id, name, age, hobby, photo);
-    this.trainerService.createTrainer(addedTrainer).subscribe(dataResult => console.log('Trainer ' + name + ' created!'));
+  addTrainer(): void {
+    const age: number = +this.trainerAge;
+    
+    if(age === NaN) {
+      alert("The age must be a number");
+      return;
+    } else if(age < 0) {
+      alert("The age must be positive");
+      return;
+    }
+
+    if(this.trainerName === '') {
+      alert("You must introduce a name");
+      return;
+    }
+
+    if(this.trainerHobby === '') {
+      alert("You must introduce a hobby");
+      return;
+    }
+
+    if(this.trainerPhoto === '') {
+      this.trainerPhoto = "https://www.seekpng.com/png/detail/242-2421423_pokemon-trainer-sprite-png-pixel-pokemon-trainer-sprites.png";
+    }
+    
+    const addedTrainer: Trainer = new Trainer(1, this.trainerName, age, this.trainerHobby, this.trainerPhoto);
+    this.trainerService.createTrainer(addedTrainer).subscribe(dataResult => console.log('Trainer ' + addedTrainer.name + ' created!'));
     this.trainers.push(addedTrainer);
+
+    this.trainerName = "";
+    this.trainerHobby = "";
+    this.trainerAge = "";
+    this.trainerPhoto = "";
   }
 
   deleteTrainer(id: number): void{
@@ -37,11 +70,12 @@ export class TrainerComponent implements OnInit {
     });
   }
 
-  getTrainer(id: number): void{
+  //¿Puede que esta función sea innecesaria?
+  /*getTrainer(id: number): void{
     this.trainerService.getTrainer(id).subscribe(dataResult => {
       this.trainer = new Trainer(dataResult.id, dataResult.name, dataResult.age, dataResult.hobby, dataResult.photo);
     });
-  }
+  }*/
 
 
 }

@@ -1,0 +1,45 @@
+.trainer-container {
+  display: flex;
+  flex-direction: column;
+  border: 0.5mm solid gray;
+  margin: 50px auto;
+  width: 1000px;
+  height: 600px;
+}
+
+.input-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1000px;
+  height: 250px;
+}
+
+.input-data input {
+  width: 400px;
+  height: 30px;
+  margin: 30px 20px 20px 20px;
+}
+
+.input-data button {
+  height: 50px;
+}
+
+.show-trainers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 1000px;
+  height: 350px;
+}
+
+.trainer-card {
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  border: 0.5mm solid gray;
+}
+
+.trainer-card:first-child {
+  margin-left: 20px;
+}

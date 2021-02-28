@@ -1,1 +1,25 @@
-<p>trainer works!</p>
+<div class="trainer-container">
+
+  <div class="input-data">
+    <input type="text" class="form-control" aria-label="Sizing example input" 
+      aria-describedby="inputGroup-sizing-default" placeholder="  Name" [(ngModel)]="trainerName">
+    <input type="text" class="form-control" aria-label="Sizing example input" 
+      aria-describedby="inputGroup-sizing-default" placeholder="  Hobby" [(ngModel)]="trainerHobby">
+    <input type="text" class="form-control" aria-label="Sizing example input" 
+      aria-describedby="inputGroup-sizing-default" placeholder="  Age" [(ngModel)]="trainerAge">
+    <input type="text" class="form-control" aria-label="Sizing example input" 
+      aria-describedby="inputGroup-sizing-default" placeholder="  Photo" [(ngModel)]="trainerPhoto">
+
+    <button type="button" class="btn btn-secondary" (click)="addTrainer()">Create Trainer</button>
+
+  </div>
+
+  <div class="show-trainers">
+
+    <div class="trainer-card" *ngFor="let trainer of trainers">
+      {{ trainer.name }}
+    </div>
+
+  </div>
+
+</div>

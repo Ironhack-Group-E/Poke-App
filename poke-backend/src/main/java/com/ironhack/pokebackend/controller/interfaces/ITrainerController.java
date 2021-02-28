@@ -9,7 +9,7 @@ import java.util.List;
 public interface ITrainerController {
     List<Trainer> getTrainers();
 
-    Trainer createTrainer(Trainer trainer);
+    Trainer createTrainer(String trainerJSON);
 
     void deleteTrainer(Integer id);
 

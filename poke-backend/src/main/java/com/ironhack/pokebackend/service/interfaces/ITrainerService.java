@@ -7,7 +7,7 @@ import com.ironhack.pokebackend.model.Trainer;
 import java.util.List;
 
 public interface ITrainerService {
-    Trainer createTrainer(Trainer trainer);
+    Trainer createTrainer(String trainerJSON);
 
     void deleteTrainer(Integer id);
 

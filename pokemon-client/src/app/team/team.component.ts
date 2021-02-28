@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../models/Pokemon/pokemon';
 import { PokemonApiService } from '../services/pokemon-api.service';
-import { TrainerService } from '../services/TrainerService/trainer.service';
+import { TrainerService } from '../services/trainer.service';
 import { Trainer } from '../models/Trainer/trainer';
 import { Team } from '../models/Team/team';
 import { TeamService } from '../services/team.service';

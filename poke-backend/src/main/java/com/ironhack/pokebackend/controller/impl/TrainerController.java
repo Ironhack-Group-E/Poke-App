@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class TrainerController implements ITrainerController {
 
     @Autowired
@@ -22,7 +23,6 @@ public class TrainerController implements ITrainerController {
     @Autowired
     private TrainerRepository trainerRepository;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/trainers")
     @ResponseStatus(HttpStatus.OK)
     public List<Trainer> getTrainers() {
@@ -31,8 +31,8 @@ public class TrainerController implements ITrainerController {
 
     @PostMapping("/trainer")
     @ResponseStatus(HttpStatus.CREATED)
-    public Trainer createTrainer(@RequestBody @Valid Trainer trainer){
-        return trainerService.createTrainer(trainer);
+    public Trainer createTrainer(@RequestBody String trainerJSON){
+        return trainerService.createTrainer(trainerJSON);
     }
 
     @DeleteMapping("/trainer/{id}")
@@ -41,7 +41,6 @@ public class TrainerController implements ITrainerController {
         trainerService.deleteTrainer(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/trainer/{id}/team")
     @ResponseStatus(HttpStatus.OK)
     public TeamDTO getTeam(@PathVariable Integer id) { return trainerService.getTeam(id); }
