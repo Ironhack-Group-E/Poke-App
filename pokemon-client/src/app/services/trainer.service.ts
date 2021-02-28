@@ -27,7 +27,8 @@ export class TrainerService {
   }
 
   createTrainer(trainer: Trainer): Observable<Trainer> {
-    const body = JSON.stringify(trainer);
+    let body = JSON.stringify(trainer);
+    body = body.replace(/_/g, '');
     return this.http.post<Trainer>('http://localhost:8080/trainer', body);
   }
 
