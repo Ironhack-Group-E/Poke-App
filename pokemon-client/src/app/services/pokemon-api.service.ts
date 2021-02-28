@@ -13,7 +13,7 @@ export class PokemonApiService {
   ){ }
 
   getAllPokemons():Observable<InterfaceList> {
-    return this.http.get<InterfaceList>('https://pokeapi.co/api/v2/pokemon?limit=20&offset=7');
+    return this.http.get<InterfaceList>('https://pokeapi.co/api/v2/pokemon?limit=21&offset=7');
   }
 
   getAPokemon(url:string):Observable<InterfacePokemon> {
