@@ -11,7 +11,7 @@ public class Trainer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotEmpty
-    private String trainerName;
+    private String name;
     @Min(1)
     private Integer age;
     @NotEmpty
@@ -21,8 +21,8 @@ public class Trainer {
     public Trainer() {
     }
 
-    public Trainer(String trainerName, Integer age, String hobby, String photo) {
-        this.trainerName = trainerName;
+    public Trainer(String name, Integer age, String hobby, String photo) {
+        this.name = name;
         this.age = age;
         this.hobby = hobby;
         this.photo = photo;
@@ -36,12 +36,12 @@ public class Trainer {
         this.id = id;
     }
 
-    public String getTrainerName() {
-        return trainerName;
+    public String getName() {
+        return name;
     }
 
-    public void setTrainerName(String trainerName) {
-        this.trainerName = trainerName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getAge() {

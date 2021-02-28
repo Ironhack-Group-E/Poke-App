@@ -3,7 +3,7 @@ USE pokemon;
 
 CREATE TABLE trainer (
 id INT AUTO_INCREMENT NOT NULL,
-trainer_name VARCHAR(255),
+name VARCHAR(255),
 age INT,
 hobby VARCHAR(255),
 photo VARCHAR(255),

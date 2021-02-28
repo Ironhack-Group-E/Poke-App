@@ -1,6 +1,8 @@
 package com.ironhack.pokebackend.controller.impl;
 
+import com.ironhack.pokebackend.controller.dto.TeamDTO;
 import com.ironhack.pokebackend.controller.interfaces.ITrainerController;
+import com.ironhack.pokebackend.model.Team;
 import com.ironhack.pokebackend.model.Trainer;
 import com.ironhack.pokebackend.repository.TrainerRepository;
 import com.ironhack.pokebackend.service.interfaces.ITrainerService;
@@ -20,6 +22,7 @@ public class TrainerController implements ITrainerController {
     @Autowired
     private TrainerRepository trainerRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/trainers")
     @ResponseStatus(HttpStatus.OK)
     public List<Trainer> getTrainers() {
@@ -37,4 +40,9 @@ public class TrainerController implements ITrainerController {
     public void deleteTrainer(@PathVariable("id") Integer id) {
         trainerService.deleteTrainer(id);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/trainer/{id}/team")
+    @ResponseStatus(HttpStatus.OK)
+    public TeamDTO getTeam(@PathVariable Integer id) { return trainerService.getTeam(id); }
 }

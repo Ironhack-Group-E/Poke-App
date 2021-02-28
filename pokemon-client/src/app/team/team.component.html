@@ -1,1 +1,8 @@
-<p>team works!</p>
+<!-- <label>Select a trainer:</label> -->
+<select [(ngModel)]="selectedTrainer" (change)="trainerChange(selectedTrainer)">
+    <!-- <option value="">Select a trainer</option> -->
+    <option *ngFor="let trainer of trainers" [ngValue]="trainer">{{ trainer.name }}</option>
+</select>
+<input type="text" placeholder="Type a pokemon name" [(ngModel)]="pokemonName" (keydown)="keydownHandler($event)">
+<button (click)="addPokemonByName(pokemonName)" [disabled]="pokemonName.length===0">Add Pokemon</button>
+<app-team-details [team]="team"></app-team-details>
