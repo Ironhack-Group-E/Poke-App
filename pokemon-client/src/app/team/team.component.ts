@@ -13,7 +13,7 @@ import { TeamService } from '../services/team.service';
 })
 export class TeamComponent implements OnInit {
 
-  private _selectedTrainer: Trainer;
+  private _selectedTrainer!: Trainer;
   private _trainers: Trainer[];
   private _team: Team;
 
@@ -26,7 +26,7 @@ export class TeamComponent implements OnInit {
   ) {
     this._trainers = [];
     this._team = new Team();
-    this._selectedTrainer = this._team.trainer;
+    // this._selectedTrainer = this._team.trainer;
     this._pokemonName = '';
    }
 
