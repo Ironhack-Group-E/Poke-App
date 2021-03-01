@@ -9,7 +9,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'team', component: TeamComponent },
   { path: 'pokedex', component: PokedexComponent },
-  { path: 'trainer', component: TrainerComponent }
+  { path: 'trainer', component: TrainerComponent },
+  { path: '', redirectTo: '/team', pathMatch: 'full' },
 ];
 
 @NgModule({
