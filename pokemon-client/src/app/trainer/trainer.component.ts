@@ -26,17 +26,12 @@ export class TrainerComponent implements OnInit {
 
   addTrainer(): void {
     const age: number = +this.trainerAge;
-    
-    if(age === NaN) {
-      alert("The age must be a number");
-      return;
-    } else if(age < 0) {
-      alert("The age must be positive");
-      return;
-    }
 
     if(this.trainerName === '') {
       alert("You must introduce a name");
+      return;
+    } else if(this.trainerName.length > 22){
+      alert("The name is too large");
       return;
     }
 
@@ -45,8 +40,19 @@ export class TrainerComponent implements OnInit {
       return;
     }
 
+    if(age === NaN) {
+      alert("The age must be a number");
+      return;
+    } else if(age < 0) {
+      alert("The age must be positive");
+      return;
+    } else if(age > 150) {
+      alert("Introduce a real age");
+      return;
+    }
+
     if(this.trainerPhoto === '') {
-      this.trainerPhoto = "https://www.seekpng.com/png/detail/242-2421423_pokemon-trainer-sprite-png-pixel-pokemon-trainer-sprites.png";
+      this.trainerPhoto = "https://www.seekpng.com/png/full/851-8515846_pokemon-trainer-vince-pokemon-trainer-sprites-transparent.png";
     }
     
     const addedTrainer: Trainer = new Trainer(1, this.trainerName, age, this.trainerHobby, this.trainerPhoto);
