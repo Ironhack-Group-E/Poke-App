@@ -1,6 +1,6 @@
 import {TeamComponent} from '../app/team/team.component';
 import {PokedexComponent} from '../app/pokedex/pokedex.component';
-import {TrainerComponent} from '../app/trainer/trainer.component';
+import {TrainerComponent} from './trainer/trainer.component';
 
 
 import { NgModule } from '@angular/core';

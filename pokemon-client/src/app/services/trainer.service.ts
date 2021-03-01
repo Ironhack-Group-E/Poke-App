@@ -22,8 +22,8 @@ export class TrainerService {
     return this.http.get<Trainer>('http://localhost:8080/trainer/' + id);
   }
 
-  deleteTrainer(id: number): void {
-    this.http.delete('http://localhost:8080/trainer/' + id).subscribe(() => console.log('trainer ' + id + ' deleted'));
+  deleteTrainer(id: number): Observable<{}> {
+    return this.http.delete('http://localhost:8080/trainer/' + id);
   }
 
   createTrainer(trainer: Trainer): Observable<Trainer> {

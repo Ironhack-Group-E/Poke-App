@@ -16,6 +16,9 @@ export class TrainerComponent implements OnInit {
 
   trainers: Trainer[] = [];
 
+  backgroundColor: string = "#ededed"
+  borderColor: string = "black"
+
   constructor(
     private trainerService: TrainerService
   ) { }
@@ -25,7 +28,7 @@ export class TrainerComponent implements OnInit {
   }
 
   addTrainer(): void {
-    const age: number = +this.trainerAge;
+    const age: number = Number(this.trainerAge);
 
     if(this.trainerName === '') {
       alert("You must introduce a name");
@@ -40,13 +43,10 @@ export class TrainerComponent implements OnInit {
       return;
     }
 
-    if(age === NaN) {
+    if(isNaN(age)) {
       alert("The age must be a number");
       return;
-    } else if(age < 0) {
-      alert("The age must be positive");
-      return;
-    } else if(age > 150) {
+    } else if(age < 0 || age > 150) {
       alert("Introduce a real age");
       return;
     }
@@ -55,9 +55,14 @@ export class TrainerComponent implements OnInit {
       this.trainerPhoto = "https://www.seekpng.com/png/full/851-8515846_pokemon-trainer-vince-pokemon-trainer-sprites-transparent.png";
     }
     
-    const addedTrainer: Trainer = new Trainer(1, this.trainerName, age, this.trainerHobby, this.trainerPhoto);
-    this.trainerService.createTrainer(addedTrainer).subscribe(dataResult => console.log('Trainer ' + addedTrainer.name + ' created!'));
-    this.trainers.push(addedTrainer);
+    let addedTrainer: Trainer = new Trainer(1, this.trainerName, age, this.trainerHobby, this.trainerPhoto);
+    
+    this.trainerService.createTrainer(addedTrainer).subscribe(dataResult => 
+      (console.log('Trainer ' + addedTrainer.name + ' created!'),
+      addedTrainer.id = dataResult.id,
+      this.trainers.push(addedTrainer)
+      ));
+    
 
     this.trainerName = "";
     this.trainerHobby = "";
@@ -66,8 +71,11 @@ export class TrainerComponent implements OnInit {
   }
 
   deleteTrainer(id: number): void{
-    this.trainerService.deleteTrainer(id);
-    this.trainers.splice(id-1, 1);
+    this.trainerService.deleteTrainer(id).subscribe(dataResult => (
+      this.trainers = [],
+      this.getAllTrainers(),
+      console.log('Trainer ' + id + ' deleted')
+    ));
   }
 
   getAllTrainers(): void{
@@ -76,12 +84,14 @@ export class TrainerComponent implements OnInit {
     });
   }
 
-  //¿Puede que esta función sea innecesaria?
-  /*getTrainer(id: number): void{
-    this.trainerService.getTrainer(id).subscribe(dataResult => {
-      this.trainer = new Trainer(dataResult.id, dataResult.name, dataResult.age, dataResult.hobby, dataResult.photo);
-    });
-  }*/
+  onMouseOver(): void {
+    this.backgroundColor = "#9ac1d8";
+    this.borderColor = "#1a5d83"
+  }
 
+  onMouseOut(): void {
+    this.backgroundColor = "#ededed";
+    this.borderColor = "black"
+  }
 
 }
