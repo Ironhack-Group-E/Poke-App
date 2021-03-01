@@ -13,7 +13,7 @@ export class PokemonApiService {
   ){ }
 
   getAllPokemons():Observable<InterfaceList> {
-    return this.http.get<InterfaceList>('https://pokeapi.co/api/v2/pokemon?limit=21&offset=7');
+    return this.http.get<InterfaceList>('https://pokeapi.co/api/v2/pokemon?limit=898');
   }
 
   getAPokemon(url:string):Observable<InterfacePokemon> {
@@ -33,90 +33,13 @@ export class PokemonApiService {
 interface InterfaceList{
   next:string,
   previous: string,
-  results: [
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },  
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },  
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    },
-    {
-      name:string,
-      url: string, 
-    }
-  ]
+  results:InterfaceResult []
 }
-
+interface InterfaceResult{
+  name:string,
+  url: string
+ 
+}
 
 interface InterfacePokemon{
   id:number,

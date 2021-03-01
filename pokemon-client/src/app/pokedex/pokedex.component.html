@@ -1,10 +1,10 @@
 <div class="container">
 <div class="pokedex">
     <div class="pokelist">
-        <div *ngFor="let pokemon of pokemonList| paginate:{itemsPerPage: 7, currentPage: p}; let i=index" [ngClass]="{ 'pokediv': true, 'selected': i===selectedPokediv }" (click)="selectDiv(i, pokemon)">
+        <div *ngFor="let pokemon of pokemonList| paginate:{itemsPerPage: 7, currentPage: p}; let i=index" [ngClass]="{ 'pokediv': true, 'selected': i===selectedPokediv }" (click)="selectDiv(i, pokemon.url)">
             <p>{{pokemon.name}}</p>
         </div>
-        <div id="pagination">
+        <div class="pokediv" id="pagination">
 			<pagination-controls class="hide-page-numbers" (pageChange)="p=$event"></pagination-controls>
 		</div> 
     </div>
