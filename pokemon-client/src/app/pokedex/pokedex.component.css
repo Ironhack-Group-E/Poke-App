@@ -2,7 +2,6 @@ html,body {
     height:100%;
 }
 
-
 .container{
     display: flex;
     justify-content: center;
@@ -25,9 +24,20 @@ html,body {
     background-color:white;
     width: 30%;
     height: 100%;
-    float: left;
-    border: 12px groove #949EB0;
-    
+    float: left;   
+}
+
+.pokediv{
+    width: 100%;
+    text-align: center; 
+    padding: 10px;
+    background-color: rgb(253, 244, 230);
+    border-bottom: 1px dotted rgb(119, 117, 117);
+    border-width: 0.2rem;
+}
+
+.pokelist:last-child{
+    border:0px;
 }
 
 .stats{
@@ -38,18 +48,22 @@ html,body {
     float: right;
     text-align: center; 
     justify-content: center;
-    background-color: rgba(255, 235, 205, 0.651);
+    background-color:  rgb(253, 244, 230);
     position: absolute;
     right: 0;
     top: 0;
 }
-.pokediv{
-    width: 100%;
-    text-align: center; 
-    border-bottom: 1px solid #000000;
-    padding: 10px;
-    background-color: rgba(255, 235, 205, 0.651);
+
+.background-logo{
+    background-image: url(../../assets/images/pokemon-logo.svg);
+    background-size: 400px 200px;
+    background-repeat: no-repeat;
+    background-position:center;
+    
 }
+
+  
+
 .pokediv>p{
     margin: 0px;
 }
@@ -59,7 +73,8 @@ html,body {
 }
 
 .hovered{
-    background-color: rgba(247, 171, 203, 0.733);
+    /* background-color: rgba(247, 171, 203, 0.733); */
+    text-shadow: 5px 6px 20px #ea00ff;
 }
 
 .pokemonImage{
@@ -72,8 +87,12 @@ html,body {
 
 #pagination ::ng-deep .ngx-pagination {
     margin: 0px;
-    padding: 10px;
-    
+    padding: 30px 5px;
+    border:0px;
+    text-align: center; 
+    background-color: rgb(253, 244, 230);
+    font-size: 11px;
+    color: #6f7175;
 }
 
 #pagination ::ng-deep .ngx-pagination>a{

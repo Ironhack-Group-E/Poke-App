@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
+  isRotating:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  rotate(){
+    this.isRotating=true;
+  }
+  
+  rotatingtofalse(){
+    this.isRotating=false;
   }
 
 }

@@ -12,14 +12,14 @@
         </div>
 
 
-        <div class="pokediv" id="pagination" (click)='deSelect()'>
+        <div  id="pagination" (click)='deSelect()'>
 			<pagination-controls class="hide-page-numbers" (pageChange)="p=$event"></pagination-controls>
 		</div> 
 
 
     </div>
 
-    <div class="stats">
+    <div class="stats" [ngClass]="{'background-logo':selectedPokemon===undefined}">
 
         <div><img *ngIf="selectedPokemon!=undefined" class="pokemonImage" src="{{selectedPokemon?.image}}" alt=""></div>
         <h2>{{selectedPokemon?.name}}</h2>

@@ -1,6 +1,12 @@
 <ul class="nav nav-tabs">
+
+  
+    <a class="logo" routerLink="/home" routerLinkActive="active" (mouseover)="rotate()" (mouseleave)="rotatingtofalse()">
+      <img src="../../assets/images/pokeball.png" width="30" height="30" alt="" [ngClass]="{'rotateIn':isRotating===true}">
+    </a>
+  
     <li class="nav-item">
-      <a class="nav-link active" routerLink="/team" routerLinkActive="active">Team</a>
+      <a class="nav-link" routerLink="/team" routerLinkActive="active">Team</a>
     </li>
     <li class="nav-item">
       <a class="nav-link"  routerLink="/pokedex" routerLinkActive="active">Pokedex</a>
@@ -9,3 +15,4 @@
       <a class="nav-link"  routerLink="/trainer" routerLinkActive="active">Trainer</a>
     </li>
   </ul>
+  <div class="undernav"></div>

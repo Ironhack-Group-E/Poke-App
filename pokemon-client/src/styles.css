@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+html, body{
+    font-family: 'Press Start 2P', cursive;
+}
 body{
     background-image: url('../src/assets/images/background.jpg');
+}
+
+.fila{
+    /* background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:1000px;
+    height:1000px; */
+    float:left
 }

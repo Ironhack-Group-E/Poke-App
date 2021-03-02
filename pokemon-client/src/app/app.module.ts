@@ -12,6 +12,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import { TeamDetailsComponent } from './team/team-details/team-details.component';
 import { PokemonDetailsComponent } from './team/team-details/pokemon-details/pokemon-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PokemonDetailsComponent } from './team/team-details/pokemon-details/pok
     TrainerComponent,
     NavBarComponent,
     TeamDetailsComponent,
-    PokemonDetailsComponent
+    PokemonDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
