@@ -1,10 +1,14 @@
-<!-- <label>Select a trainer:</label> -->
-<select [(ngModel)]="selectedTrainer" (change)="trainerChange(selectedTrainer)">
-    <!-- <option value="">Select a trainer</option> -->
-    <option *ngFor="let trainer of trainers" [ngValue]="trainer">{{ trainer.name }}</option>
-</select>
-<span *ngIf="selectedTrainer">
-    <input type="text" placeholder="Type a pokemon name" [(ngModel)]="pokemonName" (keydown)="keydownHandler($event)">
-    <button (click)="addPokemonByName(pokemonName)" [disabled]="pokemonName.length===0">Add Pokemon</button>
-    <app-team-details [team]="team"></app-team-details>
-</span>
+<div class="options-container">
+    <div class="select-container">
+        <label for="trainer-select">Select a trainer:</label>
+        <select class="trainer-select" [(ngModel)]="selectedTrainer" (change)="trainerChange(selectedTrainer)">
+            <option *ngFor="let trainer of trainers" [ngValue]="trainer">{{ trainer.name }}</option>
+        </select>
+    </div>
+    <span class="add-pokemon" *ngIf="selectedTrainer">
+        <input type="text" placeholder="Type a pokemon name" [(ngModel)]="pokemonName" (keydown)="keydownHandler($event)">
+        <button (click)="addPokemonByName(pokemonName)" [disabled]="pokemonName.length===0">Add Pokemon</button>
+    </span>
+</div>
+
+<app-team-details [team]="team"></app-team-details>

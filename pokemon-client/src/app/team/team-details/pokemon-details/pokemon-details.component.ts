@@ -14,7 +14,7 @@ export class PokemonDetailsComponent implements OnInit {
   buttonText: string = "View stats"
 
   color: string = "#000000";
-  backgroundColor: string = "#FFFFFF";
+  backgroundColor: string = "rgb(255, 246, 116)";
 
   constructor() { }
 
@@ -33,11 +33,11 @@ export class PokemonDetailsComponent implements OnInit {
 
   onMouseOver(): void {
     this.color = "#000000";
-    this.backgroundColor = "#FFC300";
+    this.backgroundColor = "rgb(189, 186, 7)";
   }
 
   onMouseOut(): void {
     this.color = "#000000";
-    this.backgroundColor = "#FFFFFF";
+    this.backgroundColor = "rgb(255, 246, 116)";
   }
 }
