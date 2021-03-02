@@ -1,7 +1,7 @@
-<div [ngStyle]="{'background-color': backgroundColor, 'color': color}" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()"> 
+<div class="pokemon-card" [ngStyle]="{'background-color': backgroundColor, 'color': color}" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
     <img [src]="pokemon.image" [alt]="pokemon.name"><br>
-    {{pokemon.name}}<br>
-    {{pokemon.types}}<br>
+    <p class="pokemon-names">{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</p>
+    <p class="pokemon-types">{{pokemon.types}}</p>
     <button (click)="toggleDisplayStats()">{{buttonText}}</button>
     <div *ngIf="displayStats">
         <ul>
