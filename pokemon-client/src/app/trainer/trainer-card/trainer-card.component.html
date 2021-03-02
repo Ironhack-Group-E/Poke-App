@@ -1,0 +1,12 @@
+<div class="trainer-card" [ngStyle]="{'background-color': backgroundColor, 'border-color': borderColor}"
+  (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+
+  <img [src]="trainer.photo" alt="Pokemon Trainer" width="150px">
+
+  <button type="button" class="close" aria-label="Close" (click)="deleteTrainer(trainer.id)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  {{ trainer.name }}
+
+</div>

@@ -8,7 +8,7 @@
         (click)="selectDiv(i, pokemon.url)" (mouseenter)='hoverEnter(i)' (mouseleave)='hoverLeave()'>
 
 
-            <p>{{pokemon.name}}</p>
+            <p>{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</p>
         </div>
 
 

@@ -29,6 +29,10 @@ export class Trainer {
         return this._photo;
     }
 
+    public set id(id: number) {
+        this._id = id;
+    }
+
     public set name(name: string) {
         this._name = name;
     }

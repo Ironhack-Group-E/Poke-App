@@ -16,15 +16,9 @@
 
   <div class="show-trainers">
 
-    <div class="trainer-card" *ngFor="let trainer of trainers">
+    <div class="trainer-card-container" *ngFor="let trainer of trainers">
 
-      <img [src]="trainer.photo" alt="Pokemon Trainer" width="150px">
-
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-
-      {{ trainer.name }}
+      <app-trainer-card [trainer]="trainer" (deleteTrainerEvent)="deleteTrainer($event)"></app-trainer-card>
 
     </div>
 

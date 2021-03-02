@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { TeamDetailsComponent } from './team/team-details/team-details.component';
 import { PokemonDetailsComponent } from './team/team-details/pokemon-details/pokemon-details.component';
 import { HomeComponent } from './home/home.component';
+import { TrainerCardComponent } from './trainer/trainer-card/trainer-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
     NavBarComponent,
     TeamDetailsComponent,
     PokemonDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    TrainerCardComponent
   ],
   imports: [
     BrowserModule,
