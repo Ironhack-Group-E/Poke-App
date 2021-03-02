@@ -14,6 +14,7 @@ export class PokedexComponent implements OnInit {
   pokemonList:Result[]=[];
   pokemonAppearing:Result[]=[];
   selectedPokediv: number | undefined;
+  hoveredPokediv:number|undefined;
   selectedPokemon:Pokemon| undefined;
   p=0;
 
@@ -54,5 +55,19 @@ export class PokedexComponent implements OnInit {
 
 
     this.selectedPokemon=newPoke;
-  })
-}};
+    })
+  }
+deSelect(){
+  this.selectedPokediv=undefined;
+  this.selectedPokediv=undefined;
+}
+
+hoverEnter(i:number){
+  this.hoveredPokediv=i;
+}
+
+hoverLeave(){
+  this.hoveredPokediv=undefined;
+}
+
+};

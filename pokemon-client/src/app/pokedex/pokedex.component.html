@@ -1,14 +1,26 @@
 <div class="container">
 <div class="pokedex">
     <div class="pokelist">
-        <div *ngFor="let pokemon of pokemonList| paginate:{itemsPerPage: 7, currentPage: p}; let i=index" [ngClass]="{ 'pokediv': true, 'selected': i===selectedPokediv }" (click)="selectDiv(i, pokemon.url)">
+   
+       
+        <div *ngFor="let pokemon of pokemonList| paginate:{itemsPerPage: 7, currentPage: p}; let i=index" 
+        [ngClass]="{ 'pokediv': true, 'selected': i===selectedPokediv, 'hovered':i===hoveredPokediv}" 
+        (click)="selectDiv(i, pokemon.url)" (mouseenter)='hoverEnter(i)' (mouseleave)='hoverLeave()'>
+
+
             <p>{{pokemon.name}}</p>
         </div>
-        <div class="pokediv" id="pagination">
+
+
+        <div class="pokediv" id="pagination" (click)='deSelect()'>
 			<pagination-controls class="hide-page-numbers" (pageChange)="p=$event"></pagination-controls>
 		</div> 
+
+
     </div>
+
     <div class="stats">
+
         <div><img *ngIf="selectedPokemon!=undefined" class="pokemonImage" src="{{selectedPokemon?.image}}" alt=""></div>
         <h2>{{selectedPokemon?.name}}</h2>
         <p>{{selectedPokemon?.types}}</p>

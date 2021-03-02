@@ -1,3 +1,8 @@
+html,body {
+    height:100%;
+}
+
+
 .container{
     display: flex;
     justify-content: center;
@@ -11,6 +16,8 @@
     border-radius: 11px;
     align-self: center;
     width: 80%;
+    overflow: hidden;
+    position: relative;
     
 }
 
@@ -19,22 +26,29 @@
     width: 30%;
     height: 100%;
     float: left;
+    border: 12px groove #949EB0;
     
 }
 
 .stats{
     width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     float: right;
     text-align: center; 
     justify-content: center;
+    background-color: rgba(255, 235, 205, 0.651);
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .pokediv{
     width: 100%;
     text-align: center; 
-    border: 5px solid #2BA8FA;
+    border-bottom: 1px solid #000000;
     padding: 10px;
+    background-color: rgba(255, 235, 205, 0.651);
 }
 .pokediv>p{
     margin: 0px;
@@ -42,6 +56,10 @@
 
 .selected{
     background-color:rgba(14, 216, 14, 0.281);  
+}
+
+.hovered{
+    background-color: rgba(247, 171, 203, 0.733);
 }
 
 .pokemonImage{
