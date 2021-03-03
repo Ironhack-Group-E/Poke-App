@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngFor="let pokemon of team.pokemonList">
-        <app-pokemon-details [pokemon]="pokemon"></app-pokemon-details>
+    <div *ngFor="let pokemon of team.pokemonList; let i=index">
+        <app-pokemon-details [team]="team" [pokemon]="pokemon" [index] = "i"></app-pokemon-details>
     </div>
 </div>

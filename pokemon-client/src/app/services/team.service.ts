@@ -15,4 +15,9 @@ export class TeamService {
     return this.http.patch<number>('http://localhost:8080/team/' + teamId + '/add/' + pokemonId, {});
 
   }
+
+  deletePokemon(teamId: number, pokemonPosition: number): Observable<number> {
+    return this.http.patch<number>('http://localhost:8080/team/' + teamId + '/delete/' + pokemonPosition, {});
+
+  }
 }
