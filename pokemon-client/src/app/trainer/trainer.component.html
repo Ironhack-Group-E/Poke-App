@@ -1,16 +1,34 @@
 <div class="trainer-container">
 
-  <div class="input-data">
-    <input type="text" class="form-control" aria-label="Sizing example input" 
-      aria-describedby="inputGroup-sizing-default" placeholder="  Name" [(ngModel)]="trainerName">
-    <input type="text" class="form-control" aria-label="Sizing example input" 
-      aria-describedby="inputGroup-sizing-default" placeholder="  Hobby" [(ngModel)]="trainerHobby">
-    <input type="text" class="form-control" aria-label="Sizing example input" 
-      aria-describedby="inputGroup-sizing-default" placeholder="  Age" [(ngModel)]="trainerAge">
-    <input type="text" class="form-control" aria-label="Sizing example input" 
-      aria-describedby="inputGroup-sizing-default" placeholder="  Photo" [(ngModel)]="trainerPhoto">
+  <div>
+      <form class="input-data" #form="ngForm">
+        <div class="div-input">
+          <input type="text" class="form-control" aria-label="Sizing example input" 
+            aria-describedby="inputGroup-sizing-default" placeholder="  Name" [(ngModel)]="trainerName"
+            required #inputName="ngModel" name="name"> 
+          <p class="error-msg" *ngIf="inputName.invalid && inputName.touched && inputName.pristine">Name is required</p>    
+       </div>
 
-    <button type="button" class="btn btn-secondary" (click)="addTrainer()">Create Trainer</button>
+       <div class="div-input">
+        <input type="text" class="form-control" aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-default" placeholder="  Hobby" [(ngModel)]="trainerHobby"
+          required #inputHobby="ngModel" name="hobby">
+        <p class="error-msg" *ngIf="inputHobby.invalid && inputHobby.touched && inputHobby.pristine">Hobby is required</p>        
+      </div>
+
+      <div class="div-input">
+        <input type="text" class="form-control" aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-default" placeholder="  Age" [(ngModel)]="trainerAge"
+          required #inputAge="ngModel" name="age">
+        <p class="error-msg" *ngIf="inputAge.invalid && inputAge.touched && inputAge.pristine">Age is required</p>        
+       </div>
+
+      <div>
+       <input type="text" class="form-control" aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-default" placeholder="  Photo" [(ngModel)]="trainerPhoto">
+      </div>
+      <button type="submit" class="btn btn-secondary" (click)="addTrainer()">Create Trainer</button>
+    </form>
 
   </div>
 
