@@ -18,3 +18,9 @@
   right: 10px;
   /*z-index: 200;*/
 }
+
+.trainer-card p {
+  text-align: center;
+  margin: 2px;
+  font-size: 14px;
+}

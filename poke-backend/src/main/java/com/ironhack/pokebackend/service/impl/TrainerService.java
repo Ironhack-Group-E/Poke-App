@@ -52,10 +52,6 @@ public class TrainerService implements ITrainerService {
 
         Team team = new Team(trainer);
 
-        // Print the trainer info to the console
-
-        System.out.println(trainer.toString());
-
         // Save both team and trainer into the repositories
 
         trainer = trainerRepository.save(trainer);

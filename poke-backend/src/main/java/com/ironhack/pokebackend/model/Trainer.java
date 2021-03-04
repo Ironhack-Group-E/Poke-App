@@ -74,14 +74,4 @@ public class Trainer {
         this.photo = photo;
     }
 
-    @Override
-    public String toString() {
-        return "Trainer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", hobby='" + hobby + '\'' +
-                ", photo='" + photo + '\'' +
-                '}';
-    }
 }
