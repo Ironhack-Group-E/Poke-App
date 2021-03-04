@@ -13,9 +13,35 @@ So are we!!!!! Enjoy PokeApp and try to catch'em all!!!
 
 2. Create your database using the tables provided.
 
-3. Run backend (`mvn spring-boot:run`), run frontend (`ng serve -o`). 
+3. Run backend (`mvn spring-boot:run`)
+
+4. Set up Angular Material by running the following command: `ng add @angular/material` 
+
+5. Instead of choosing a prebuilt theme, select **CUSTOM** theme, say **NO** to Angular Material typography and **YES** to browser animation.
+
+6. You must also delete the following line from index.html 
+    ```
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    ```
+    
+7. And delete these lines from style.css
+    ```
+    html, body { height: 100%; }
+    body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    ```
+
+8. Run frontend (`ng serve -o`). 
   
-4. ENJOY!!!!
+9. ENJOY!!!!
+
+In case you face any problem during running frontend, it may be due to a version problem. In any case, it will be fixed by running the following commands:
+
+```
+npm install @angular/cli@11.2.3
+npm install @angular/core@11.2.3
+npm install @angular/cdk@11.2.3 
+npm install popper.js@^1.16.1
+```
 
 
 ## Functionalities 
