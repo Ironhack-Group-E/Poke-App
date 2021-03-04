@@ -4,13 +4,14 @@ html,body {
 
 .container{
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     height: auto;
     width: auto;
 }
 .pokedex{
-    margin: 60px 30px;
+    margin: 5px 30px;
     border: 12px groove #949EB0;
     border-radius: 11px;
     align-self: center;
@@ -73,8 +74,7 @@ html,body {
 }
 
 .hovered{
-    /* background-color: rgba(247, 171, 203, 0.733); */
-    text-shadow: 5px 6px 20px #ea00ff;
+    text-shadow: 5px 8px 20px #F86A96;
 }
 
 .pokemonImage{
@@ -98,5 +98,11 @@ html,body {
 #pagination ::ng-deep .ngx-pagination>a{
     width: 50%;
     
+}
+
+input{
+    border: 10px double #F86A96;
+    border-radius: 34px; 
+    margin-top: 20px;
 }
 
