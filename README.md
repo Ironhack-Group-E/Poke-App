@@ -19,12 +19,12 @@ So are we!!!!! Enjoy PokeApp and try to catch'em all!!!
 
 5. Instead of choosing a prebuilt theme, select **CUSTOM** theme, say **NO** to Angular Material typography and **YES** to browser animation.
 
-6. You must also delete the following line from index.html 
+6. You must also delete the following line from 'index.html' 
     ```
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     ```
     
-7. And delete these lines from style.css
+7. And delete these lines from 'style.css'
     ```
     html, body { height: 100%; }
     body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
