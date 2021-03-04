@@ -34,7 +34,7 @@ So are we!!!!! Enjoy PokeApp and try to catch'em all!!!
   
 9. ENJOY!!!!
 
-In case you face any problem during running frontend, it may be due to a version problem. In any case, it will be fixed by running the following commands:
+In case you face any problem during running frontend, it may be due to a version problem. In any case, it will be fixed by deleting 'node_modules' directory and running the following commands:
 
 ```
 npm install @angular/cli@11.2.3
