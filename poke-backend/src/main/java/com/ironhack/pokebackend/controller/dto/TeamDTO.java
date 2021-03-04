@@ -4,6 +4,8 @@ import com.ironhack.pokebackend.model.Trainer;
 
 import java.util.List;
 
+// Team Data Transfer Object
+
 public class TeamDTO {
     private Integer id;
     private Trainer trainer;

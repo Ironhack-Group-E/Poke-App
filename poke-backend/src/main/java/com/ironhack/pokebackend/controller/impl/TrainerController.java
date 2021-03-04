@@ -17,11 +17,15 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TrainerController implements ITrainerController {
 
+    // Inject all dependencies neeeded
+
     @Autowired
     private ITrainerService trainerService;
 
     @Autowired
     private TrainerRepository trainerRepository;
+
+    //Get route to bring all the trainers
 
     @GetMapping("/trainers")
     @ResponseStatus(HttpStatus.OK)
@@ -29,17 +33,23 @@ public class TrainerController implements ITrainerController {
         return trainerRepository.findAll();
     }
 
+    //Post route to create a new trainer
+
     @PostMapping("/trainer")
     @ResponseStatus(HttpStatus.CREATED)
     public Trainer createTrainer(@RequestBody String trainerJSON){
         return trainerService.createTrainer(trainerJSON);
     }
 
+    // Delete route to delete a trainer by id
+
     @DeleteMapping("/trainer/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTrainer(@PathVariable("id") Integer id) {
         trainerService.deleteTrainer(id);
     }
+
+    //Get route to bring an specific team by id
 
     @GetMapping("/trainer/{id}/team")
     @ResponseStatus(HttpStatus.OK)

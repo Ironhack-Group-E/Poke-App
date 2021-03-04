@@ -6,7 +6,10 @@ import com.ironhack.pokebackend.model.Trainer;
 
 import java.util.List;
 
+// Trainer interface with all trainer controller routes
+
 public interface ITrainerController {
+
     List<Trainer> getTrainers();
 
     Trainer createTrainer(String trainerJSON);

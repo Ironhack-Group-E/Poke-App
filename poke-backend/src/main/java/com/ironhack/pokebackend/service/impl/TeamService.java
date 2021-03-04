@@ -11,17 +11,26 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class TeamService implements ITeamService {
 
+    // Inject repository
+
     @Autowired
     private TeamRepository teamRepository;
 
+    // Add pokemon service
+
     public void addPokemon(Integer id, Integer pokemonId) {
         Team team;
+
+        // We first check if the team exist, in negative case it throws an exception
 
         if(teamRepository.existsById(id)) {
             team = teamRepository.findById(id).get();
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Team not found");
         }
+
+        /* To add a new pokemon to a team we must check if there is any spare space. In case the team
+        is full we throw an exception and if there is enough space we add the pokemon and save the team */
 
         if(team.getPokemon7() == null) {
 
@@ -53,8 +62,12 @@ public class TeamService implements ITeamService {
         }
     }
 
+    // Delete pokemon from a team service
+
     public void deletePokemon(Integer id, Integer pokemonPosition) {
         Team team;
+
+        // We first must check if the team exists, in negative case we throw an exception
 
         if(teamRepository.existsById(id)) {
             team = teamRepository.findById(id).get();
@@ -62,9 +75,15 @@ public class TeamService implements ITeamService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Team not found");
         }
 
+        /* Since the maximum number of pokemon in a team is equal to 7, we must verify that the pokemon
+           to be eliminated belongs to this rank */
+
         if(pokemonPosition < 1 || pokemonPosition > 7) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Pokemon position must be between 1 and 7");
         }
+
+        /* If the pokemon to be deleted belongs to the rank, we reorder the pokemon positions, delete the
+            pokemon and save the new team */
 
         if(pokemonPosition == 1) {
             team.setPokemon1(team.getPokemon2());

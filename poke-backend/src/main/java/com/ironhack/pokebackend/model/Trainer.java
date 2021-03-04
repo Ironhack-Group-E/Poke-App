@@ -7,6 +7,8 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class Trainer {
 
+    // Trainer attributes
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,6 +20,8 @@ public class Trainer {
     private String hobby;
     private String photo;
 
+    // Constructors
+
     public Trainer() {
     }
 
@@ -27,6 +31,8 @@ public class Trainer {
         this.hobby = hobby;
         this.photo = photo;
     }
+
+    // Getters & Setters
 
     public Integer getId() {
         return id;

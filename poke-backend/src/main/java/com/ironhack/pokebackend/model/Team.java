@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 public class Team {
 
+    // Team attributes
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -19,8 +21,12 @@ public class Team {
     private Integer pokemon6;
     private Integer pokemon7;
 
+    // Empty constructor
+
     public Team() {
     }
+
+    // Getters & Setters
 
     public Team(Trainer trainer) {
         this.trainer = trainer;

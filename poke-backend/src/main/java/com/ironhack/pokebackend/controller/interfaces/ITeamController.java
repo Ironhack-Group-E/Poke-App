@@ -4,6 +4,8 @@ import com.ironhack.pokebackend.model.Team;
 
 import java.util.List;
 
+// Team interface with all trainer controller routes
+
 public interface ITeamController {
 
     List<Team> getTeams();
