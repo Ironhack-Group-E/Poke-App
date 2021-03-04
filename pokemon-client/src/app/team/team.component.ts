@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../models/Pokemon/pokemon';
 import { PokemonApiService } from '../services/pokemon-api.service';
+import {FormControl} from '@angular/forms';
 import { TrainerService } from '../services/trainer.service';
 import { Trainer } from '../models/Trainer/trainer';
 import { Team } from '../models/Team/team';
 import { TeamService } from '../services/team.service';
+import { Observable } from 'rxjs';
+import { Result } from '../models/result';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-team',
@@ -18,6 +22,10 @@ export class TeamComponent implements OnInit {
   private _team: Team;
 
   private _pokemonName: string;
+  filteredOptions: Observable<string[]>| undefined;
+  content:string[]=[];
+
+  myControl = new FormControl();
 
   constructor(
     private trainerService: TrainerService,
@@ -35,6 +43,26 @@ export class TeamComponent implements OnInit {
       this._trainers = dataResult;
       // console.log(this._trainers);
     });
+
+    this.pokemonApiService.getAllPokemons().subscribe(dataResult => {
+      dataResult.results.forEach(result=>{
+        this.content.push(result.name);
+      })
+
+      console.log(this.content)
+      });
+
+      this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.content.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   trainerChange(trainer: Trainer) {

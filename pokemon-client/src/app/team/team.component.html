@@ -6,7 +6,17 @@
         </select>
     </div>
     <span class="add-pokemon" *ngIf="selectedTrainer">
-        <input type="text" placeholder="Type a pokemon name" [(ngModel)]="pokemonName" (keydown)="keydownHandler($event)">
+        <input type="text" placeholder="Type a pokemon name" [(ngModel)]="pokemonName" 
+        aria-label="Pokemon"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+        (keydown)="keydownHandler($event)">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
         <button (click)="addPokemonByName(pokemonName)" [disabled]="pokemonName.length===0">Add Pokemon</button>
     </span>
 </div>
