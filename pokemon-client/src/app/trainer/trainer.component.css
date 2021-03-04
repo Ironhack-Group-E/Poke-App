@@ -2,7 +2,6 @@
 .trainer-container {
   display: flex;
   flex-direction: column;
-  /*border: 0.5mm solid gray;*/
   margin: 50px auto;
   width: 1000px;
   height: 600px;
@@ -36,6 +35,18 @@
 
 .input-data button {
   height: 50px;
+}
+
+.div-input-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#photoURL, #photoFile {
+  width: 180px;
+  margin: 10px;
 }
 
 .show-trainers {
