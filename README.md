@@ -37,6 +37,8 @@ So are we!!!!! Enjoy PokeApp and try to catch'em all!!!
 In case you face any problem during running frontend, it may be due to a version problem. In any case, it will be fixed by deleting 'node_modules' directory and running the following commands:
 
 ```
+npm install
+ng add @angular/material
 npm install @angular/cli@11.2.3
 npm install @angular/core@11.2.3
 npm install @angular/cdk@11.2.3 
