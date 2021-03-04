@@ -56,6 +56,8 @@ The functionalities are shown below.
 
 - Erase both Trainers and Pokemons.
 - Autocompletion for better pokemon search.
+- Search bar on Pokedex page.
+- Upload a local image for a trainer avatar (some images may not be displayed correctly, use the images inside resources/img on the backend proyect to test)
 
 ## Diagrams
 
