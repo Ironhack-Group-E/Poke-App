@@ -67,7 +67,11 @@ export class TeamComponent implements OnInit {
 
   addPokemonByName(name: string): void {
     if (this._team.pokemonList.length === 7) {
-      alert("You can't add more than 7 Pokemon to your team!")
+      alert("You can't add more than 7 Pokemon to your team!");
+      return;
+    }
+    if (!isNaN(Number(name))) {
+      alert("You must enter a Pokemon name, not the ID");
       return;
     }
     this.pokemonApiService.getPokemonByName(name.toLowerCase()).subscribe(
