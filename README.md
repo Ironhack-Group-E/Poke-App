@@ -1,3 +1,6 @@
+![Alt Text](https://github.com/Ironhack-Group-E/Poke-App/blob/main/FireShot%20Capture%20071%20-%20PokemonClient%20-%20localhost.png)
+
+
 # Poke-App
 
 Are you a POKEMON fan???.
