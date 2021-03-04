@@ -15,7 +15,7 @@ export class TrainerService {
   ) { }
 
   getTrainers(): Observable<Trainer[]> {
-    return this.http.get<Trainer[]>('http://localhost:8080/trainers'); 
+    return this.http.get<Trainer[]>('http://localhost:8080/trainers');
   }
 
   getTrainer(id: number): Observable<Trainer> {
@@ -34,6 +34,18 @@ export class TrainerService {
 
   getTeam(trainer: Trainer): Observable<TeamInterface> {
     return this.http.get<TeamInterface>('http://localhost:8080/trainer/' + trainer.id + '/team');
+  }
+
+  postImage(imageData: FormData): Observable<{}> {
+    return this.http.post('http://localhost:8080/image/upload', imageData);
+  }
+
+  getImage(name: string): Observable<FormData> {
+    return this.http.get<FormData>('http://localhost:8080/image/get/' + name);
+  }
+
+  deleteImage(name: string): Observable<{}> {
+    return this.http.delete('http://localhost:8080/image/delete/' + name);
   }
 }
 

@@ -26,8 +26,10 @@
       <div class="div-input-photo">
         <input type="text" id="photoURL" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-default"  placeholder
-          ="  Photo" [(ngModel)]="trainerPhoto">
-        <input type="file" id="photoFile" text="Upload">
+          ="  Photo" [(ngModel)]="trainerPhoto" [ngModelOptions]="{standalone: true}">
+        <label for="photoFile">Upload</label>
+        <input type="file" id="photoFile" (change)="onFileChanged($event)" accept=".jpg, .jpeg, .png">
+        <p class="error-msg" *ngIf="selectedFile.name !== ''">Photo already uploaded</p>
       </div>
 
       <button type="submit" class="btn btn-secondary" (click)="addTrainer()">Create Trainer</button>
@@ -39,8 +41,7 @@
 
     <div class="trainer-card-container" *ngFor="let trainer of trainers">
 
-      <app-trainer-card [trainer]="trainer" (deleteTrainerEvent)="deleteTrainer($event)"></app-trainer-card>
-
+      <app-trainer-card [trainer]="trainer" (deleteTrainerEvent)="deleteTrainer($event.id, $event.photoName)"></app-trainer-card>
     </div>
 
   </div>

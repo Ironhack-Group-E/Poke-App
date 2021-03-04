@@ -37,7 +37,6 @@ public class TrainerService implements ITrainerService {
         trainer.setId(null);
         Team team = new Team(trainer);
 
-        System.out.println(trainer.toString());
         trainer = trainerRepository.save(trainer);
 
         team = teamRepository.save(team);

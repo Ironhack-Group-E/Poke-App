@@ -23,3 +23,11 @@ pokemon7 INT,
 PRIMARY KEY (id),
  FOREIGN KEY (trainer) REFERENCES trainer(id)
 );
+
+CREATE TABLE image_table (
+id BIGINT AUTO_INCREMENT NOT NULL,
+name VARCHAR(255),
+type VARCHAR(255),
+picByte BLOB,
+PRIMARY KEY (id)
+);

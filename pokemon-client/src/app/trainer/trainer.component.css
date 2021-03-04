@@ -39,14 +39,43 @@
 
 .div-input-photo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  margin: 10px;
+  margin: 20px;
+  width: 400px;
+  position: relative;
 }
 
-#photoURL, #photoFile {
-  width: 180px;
-  margin: 10px;
+#photoURL {
+  width: 300px;
+  margin: 10px 0px 20px 0px;
+}
+
+.div-input-photo label {
+  position: absolute;
+  left: 300px;
+  top: 13px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: rgb(204, 204, 204);
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*box-shadow: 2px 2px 5px rgba(119, 119, 119, 0.589);*/
+}
+
+.div-input-photo .error-msg {
+  color: #495057;
+  top: 50px;
+  left: 20px;
+}
+
+#photoFile {
+  width: 140px;
+  margin: 10px 0px 20px 0px;
 }
 
 .show-trainers {

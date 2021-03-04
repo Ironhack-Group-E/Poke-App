@@ -19,6 +19,8 @@ export class TrainerComponent implements OnInit {
   backgroundColor: string = "#ededed"
   borderColor: string = "black"
 
+  selectedFile: File = new File( [], '');
+
   constructor(
     private trainerService: TrainerService
   ) { }
@@ -51,31 +53,39 @@ export class TrainerComponent implements OnInit {
       return;
     }
 
+    this.trainerPhoto = this.selectedFile.name;
+    this.trainerPhoto = this.trainerPhoto.replace(/ /g, '');
+
     if(this.trainerPhoto === '') {
       this.trainerPhoto = "https://www.seekpng.com/png/full/851-8515846_pokemon-trainer-vince-pokemon-trainer-sprites-transparent.png";
     }
-    
+
+    this.uploadImage();
+
     let addedTrainer: Trainer = new Trainer(1, this.trainerName, age, this.trainerHobby, this.trainerPhoto);
-    
-    this.trainerService.createTrainer(addedTrainer).subscribe(dataResult => 
-      (console.log('Trainer ' + addedTrainer.name + ' created!'),
-      addedTrainer.id = dataResult.id,
-      this.trainers.push(addedTrainer)
-      ));
-    
+
+    this.trainerService.createTrainer(addedTrainer).subscribe(dataResult =>
+      {
+        console.log('Trainer ' + addedTrainer.name + ' created!');
+        addedTrainer.id = dataResult.id;
+        this.trainers.push(addedTrainer);
+    });
+
 
     this.trainerName = "";
     this.trainerHobby = "";
     this.trainerAge = "";
     this.trainerPhoto = "";
+    this.selectedFile  = new File( [], '');
   }
 
-  deleteTrainer(id: number): void{
+  deleteTrainer(id: number, photoName: string): void{
     this.trainerService.deleteTrainer(id).subscribe(dataResult => (
       this.trainers = [],
       this.getAllTrainers(),
       console.log('Trainer ' + id + ' deleted')
     ));
+    this.trainerService.deleteImage(photoName).subscribe();
   }
 
   getAllTrainers(): void{
@@ -93,5 +103,17 @@ export class TrainerComponent implements OnInit {
     this.backgroundColor = "#ededed";
     this.borderColor = "black"
   }
+
+  onFileChanged(event: any): void {
+    this.selectedFile = event.target.files[0];
+    this.trainerPhoto = this.selectedFile.name;
+    console.log(this.trainerPhoto);
+  }
+
+  uploadImage() {
+        const uploadImageData = new FormData();
+        uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name.replace(/ /g, ''));
+        this.trainerService.postImage(uploadImageData).subscribe();
+      }
 
 }
