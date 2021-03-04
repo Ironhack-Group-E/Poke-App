@@ -1,1 +1,24 @@
-<p>team works!</p>
+<div class="options-container">
+    <div class="select-container">
+        <label for="trainer-select">Select a trainer:</label>
+        <select class="trainer-select" [(ngModel)]="selectedTrainer" (change)="trainerChange(selectedTrainer)">
+            <option *ngFor="let trainer of trainers" [ngValue]="trainer">{{ trainer.name }}</option>
+        </select>
+    </div>
+    <span class="add-pokemon" *ngIf="selectedTrainer">
+        <input type="text" placeholder="Type a pokemon name" [(ngModel)]="pokemonName" 
+        aria-label="Pokemon"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+        (keydown)="keydownHandler($event)">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <button (click)="addPokemonByName(pokemonName)" [disabled]="pokemonName.length===0">Add Pokemon</button>
+    </span>
+</div>
+
+<app-team-details [team]="team"></app-team-details>

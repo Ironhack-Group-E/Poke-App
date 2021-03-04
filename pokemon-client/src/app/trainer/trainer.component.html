@@ -1,1 +1,49 @@
-<p>trainer works!</p>
+<div class="trainer-container">
+
+  <div>
+      <form class="input-data" #form="ngForm">
+        <div class="div-input">
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="  Name" [(ngModel)]="trainerName"
+            required #inputName="ngModel" name="name">
+          <p class="error-msg" *ngIf="inputName.invalid && inputName.touched && inputName.pristine">Name is required</p>
+      </div>
+
+      <div class="div-input">
+        <input type="text" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" placeholder="  Hobby" [(ngModel)]="trainerHobby"
+          required #inputHobby="ngModel" name="hobby">
+        <p class="error-msg" *ngIf="inputHobby.invalid && inputHobby.touched && inputHobby.pristine">Hobby is required</p>
+      </div>
+
+      <div class="div-input">
+        <input type="text" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" placeholder="  Age" [(ngModel)]="trainerAge"
+          required #inputAge="ngModel" name="age">
+        <p class="error-msg" *ngIf="inputAge.invalid && inputAge.touched && inputAge.pristine">Age is required</p>
+      </div>
+
+      <div class="div-input-photo">
+        <input type="text" id="photoURL" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"  placeholder
+          ="  Photo" [(ngModel)]="trainerPhoto" [ngModelOptions]="{standalone: true}">
+        <label for="photoFile">Upload</label>
+        <input type="file" id="photoFile" (change)="onFileChanged($event)" accept=".jpg, .jpeg, .png">
+        <p class="error-msg" *ngIf="selectedFile.name !== ''">Photo already uploaded</p>
+      </div>
+
+      <button type="submit" class="btn btn-secondary" (click)="addTrainer()">Create Trainer</button>
+    </form>
+
+  </div>
+
+  <div class="show-trainers">
+
+    <div class="trainer-card-container" *ngFor="let trainer of trainers">
+
+      <app-trainer-card [trainer]="trainer" (deleteTrainerEvent)="deleteTrainer($event.id, $event.photoName)"></app-trainer-card>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,93 @@
+
+.trainer-container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 1000px;
+  height: 600px;
+}
+
+.input-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1000px;
+  height: 250px;
+}
+
+.div-input{
+  position:relative;
+}
+
+.input-data p{
+  position:absolute;
+  top:70px;
+  left:40px;
+  color:red;
+  font-size: 10px;
+}
+
+.input-data input {
+  width: 400px;
+  height: 30px;
+  margin: 30px 20px 20px 20px;
+}
+
+.input-data button {
+  height: 50px;
+}
+
+.div-input-photo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px;
+  width: 400px;
+  position: relative;
+}
+
+#photoURL {
+  width: 300px;
+  margin: 10px 0px 20px 0px;
+}
+
+.div-input-photo label {
+  position: absolute;
+  left: 300px;
+  top: 13px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: rgb(204, 204, 204);
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*box-shadow: 2px 2px 5px rgba(119, 119, 119, 0.589);*/
+}
+
+.div-input-photo .error-msg {
+  color: #495057;
+  top: 50px;
+  left: 20px;
+}
+
+#photoFile {
+  width: 140px;
+  margin: 10px 0px 20px 0px;
+}
+
+.show-trainers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 1000px;
+  height: 350px;
+}
+
+.trainer-card-container {
+  margin: 20px 25px;
+  position: relative;
+}
+

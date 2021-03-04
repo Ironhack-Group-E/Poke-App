@@ -1,0 +1,19 @@
+<div class="pokemon-card" [ngStyle]="{'background-color': backgroundColor, 'color': color}" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+    <img [src]="pokemon.image" [alt]="pokemon.name"><br>
+    <p class="pokemon-names">{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</p>
+    <p class="pokemon-types">{{pokemon.types}}</p>
+    <button type="button" class="close" aria-label="Close" (click)="deletePokemon()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    <button (click)="toggleDisplayStats()">{{buttonText}}</button>
+    <div *ngIf="displayStats">
+        <ul>
+            <li>hp: {{pokemon.hp}}</li>
+            <li>attack: {{pokemon.attack}}</li>
+            <li>defense: {{pokemon.defense}}</li>
+            <li>special attack: {{pokemon.specialAttack}}</li>
+            <li>special defense: {{pokemon.specialDefense}}</li>
+            <li>speed: {{pokemon.speed}}</li>
+        </ul>
+    </div>
+</div>

@@ -3,7 +3,7 @@ USE pokemon;
 
 CREATE TABLE trainer (
 id INT AUTO_INCREMENT NOT NULL,
-trainer_name VARCHAR(255),
+name VARCHAR(255),
 age INT,
 hobby VARCHAR(255),
 photo VARCHAR(255),
@@ -22,4 +22,12 @@ pokemon6 INT,
 pokemon7 INT,
 PRIMARY KEY (id),
  FOREIGN KEY (trainer) REFERENCES trainer(id)
+);
+
+CREATE TABLE image_table (
+id BIGINT AUTO_INCREMENT NOT NULL,
+name VARCHAR(255),
+type VARCHAR(255),
+picByte BLOB,
+PRIMARY KEY (id)
 );

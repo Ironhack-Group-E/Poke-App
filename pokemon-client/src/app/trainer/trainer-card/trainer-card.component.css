@@ -1,0 +1,26 @@
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 300px;
+  border: 0.5mm solid gray;
+}
+
+.trainer-card img {
+  max-height: 250px;
+  margin-top: 5px;
+}
+
+.trainer-card button {
+  position: absolute;
+  right: 10px;
+  /*z-index: 200;*/
+}
+
+.trainer-card p {
+  text-align: center;
+  margin: 2px;
+  font-size: 14px;
+}

@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
+  isRotating:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  //A transition effect to rotate the pokeball logo
+  rotate(){
+    this.isRotating=true;
+  }
+
+  rotatingtofalse(){
+    this.isRotating=false;
   }
 
 }
