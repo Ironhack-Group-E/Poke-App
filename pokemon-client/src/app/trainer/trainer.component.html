@@ -3,10 +3,10 @@
   <div>
       <form class="input-data" #form="ngForm">
         <div class="div-input">
-          <input type="text" class="form-control" aria-label="Sizing example input" 
+          <input type="text" class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default" placeholder="  Name" [(ngModel)]="trainerName"
             required #inputName="ngModel" name="name">
-          <p class="error-msg" *ngIf="inputName.invalid && inputName.touched && inputName.pristine">Name is required</p>    
+          <p class="error-msg" *ngIf="inputName.invalid && inputName.touched && inputName.pristine">Name is required</p>
       </div>
 
       <div class="div-input">

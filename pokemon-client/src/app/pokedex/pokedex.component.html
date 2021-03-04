@@ -1,65 +1,59 @@
 <div class="container">
   <div class="search">
-      <input type="text"
-             placeholder=" Search your Pokemon"
-             aria-label="Pokemon"
-             matInput
-             [formControl]="myControl"
-             [matAutocomplete]="auto"
-             [(ngModel)]='searchValue'
-             (keydown.enter)="selectPokemon(searchValue)">
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
- </div>  
-<div class="pokedex">
+    <input type="text" placeholder=" Search your Pokemon" aria-label="Pokemon" matInput [formControl]="myControl"
+      [matAutocomplete]="auto" [(ngModel)]='searchValue' (keydown.enter)="selectPokemon(searchValue)">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+  <div class="pokedex">
     <div class="pokelist">
-   
-       
-        <div *ngFor="let pokemon of pokemonList| paginate:{itemsPerPage: 7, currentPage: p}; let i=index" 
-        [ngClass]="{ 'pokediv': true, 'selected': i===selectedPokediv, 'hovered':i===hoveredPokediv}" 
+
+
+      <div *ngFor="let pokemon of pokemonList| paginate:{itemsPerPage: 7, currentPage: p}; let i=index"
+        [ngClass]="{ 'pokediv': true, 'selected': i===selectedPokediv, 'hovered':i===hoveredPokediv}"
         (click)="selectDiv(i, pokemon.url)" (mouseenter)='hoverEnter(i)' (mouseleave)='hoverLeave()'>
 
 
-            <p>{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</p>
-        </div>
+        <p>{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</p>
+      </div>
 
 
-        <div  id="pagination" (click)='deSelect()'>
-			<pagination-controls class="hide-page-numbers" (pageChange)="p=$event"></pagination-controls>
-		</div> 
+      <div id="pagination" (click)='deSelect()'>
+        <pagination-controls class="hide-page-numbers" (pageChange)="p=$event"></pagination-controls>
+      </div>
 
 
     </div>
 
     <div class="stats" [ngClass]="{'background-logo':selectedPokemon===undefined}">
-      
 
-        <div><img *ngIf="selectedPokemon!=undefined" class="pokemonImage" src="{{selectedPokemon?.image}}" alt=""></div>
-        <h2>{{selectedPokemon?.name}}</h2>
-        <p>{{selectedPokemon?.types}}</p>
 
-        <table *ngIf="selectedPokemon!=undefined" class="table table-hover">
-            <tbody>
-              <tr>
-                
-                <td>HP: {{selectedPokemon?.hp}}</td>
-                <td>Attack: {{selectedPokemon?.attack}}</td>
-                <td>Defense: {{selectedPokemon?.defense}}</td>
-              </tr>
-              <tr>
-                
-                <td>Special attack: {{selectedPokemon?.specialAttack}}</td>
-                <td>Special defense: {{selectedPokemon?.specialDefense}}</td>
-                <td>Speed: {{selectedPokemon?.speed}}</td>
-              </tr>
-            </tbody>
-          </table>
-          
-       
+      <div><img *ngIf="selectedPokemon!=undefined" class="pokemonImage" src="{{selectedPokemon?.image}}" alt=""></div>
+      <h2>{{selectedPokemon?.name}}</h2>
+      <p>{{selectedPokemon?.types}}</p>
+
+      <table *ngIf="selectedPokemon!=undefined" class="table table-hover">
+        <tbody>
+          <tr>
+
+            <td>HP: {{selectedPokemon?.hp}}</td>
+            <td>Attack: {{selectedPokemon?.attack}}</td>
+            <td>Defense: {{selectedPokemon?.defense}}</td>
+          </tr>
+          <tr>
+
+            <td>Special attack: {{selectedPokemon?.specialAttack}}</td>
+            <td>Special defense: {{selectedPokemon?.specialDefense}}</td>
+            <td>Speed: {{selectedPokemon?.speed}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
     </div>
-</div>
+  </div>
 
 </div>
